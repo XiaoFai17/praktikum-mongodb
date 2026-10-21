@@ -1,0 +1,57 @@
+db.mahasiswa.aggregate([
+  {
+    $group: {
+      _id: "$prodi",
+      jumlah_mahasiswa: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { jumlah_mahasiswa: -1 }
+  }
+])
+
+db.mahasiswa.aggregate([
+  {
+    $group: {
+      _id: "$prodi",
+      rata_rata_ipk: { $avg: "$ipk" }
+    }
+  },
+  {
+    $sort: { rata_rata_ipk: -1 }
+  }
+])
+
+db.mahasiswa.aggregate([
+  {
+    $group: {
+      _id: "$prodi",
+      ipk_tertinggi: { $max: "$ipk" },
+      ipk_terendah: { $min: "$ipk" }
+    }
+  },
+  {
+    $sort: { _id: 1 }
+  }
+])
+
+db.mahasiswa.aggregate([
+  {
+    $match: {
+      ipk: { $gte: 3.50 }
+    }
+  },
+  {
+    $group: {
+      _id: "$prodi",
+      jumlah_mahasiswa: { $sum: 1 },
+      rata_rata_ipk: { $avg: "$ipk" }
+    }
+  },
+  {
+    $sort: {
+      jumlah_mahasiswa: -1,
+      _id: 1
+    }
+  }
+])

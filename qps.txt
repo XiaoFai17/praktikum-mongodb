@@ -1,0 +1,30 @@
+db.mahasiswa.find({ ipk: { $gte: 3.50 } })
+
+db.mahasiswa.find({ prodi: "Informatika" })
+
+db.mahasiswa.find({ angkatan: 2023 })
+
+db.mahasiswa.find({
+  ipk: {
+    $gte: 3.00,
+    $lte: 3.60
+  }
+})
+
+db.mahasiswa.find({ kota: "Surabaya" })
+
+db.mahasiswa.find({ skills: "Python" })
+
+db.mahasiswa.find({
+  prodi: "Informatika",
+  ipk: { $gte: 3.50 }
+})
+
+db.mahasiswa.find(
+  {},
+  { _id: 0, nama: 1, prodi: 1, ipk: 1 }
+)
+
+db.mahasiswa.find().sort({ ipk: -1 })
+
+db.mahasiswa.find().sort({ ipk: -1 }).limit(5)

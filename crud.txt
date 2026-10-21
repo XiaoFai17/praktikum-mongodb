@@ -1,0 +1,116 @@
+db.mahasiswa.insertOne({
+  nim: "3323600024",
+  nama: "Munaffidzur",
+  prodi: "Sains Data",
+  angkatan: 2023,
+  ipk: 3.65,
+  kota: "Sidoarjo",
+  skills: ["Python", "SQL", "MongoDB"]
+})
+
+db.mahasiswa.insertMany([
+  {
+    nim: "3323600017",
+    nama: "Faishal",
+    prodi: "Teknologi Game",
+    angkatan: 2023,
+    ipk: 3.99,
+    kota: "Surabaya",
+    skills: ["Godot", "Aseprite", "Python"]
+  },
+  {
+    nim: "3323600002",
+    nama: "Vana",
+    prodi: "Informatika",
+    angkatan: 2023,
+    ipk: 3.82,
+    kota: "Surabaya",
+    skills: ["Python", "Java"]
+  },
+  {
+    nim: "3323600011",
+    nama: "Fauzin",
+    prodi: "Sains Data",
+    angkatan: 2023,
+    ipk: 3.55,
+    kota: "Gresik",
+    skills: ["SQL", "Python"]
+  },
+  {
+    nim: "3323600010",
+    nama: "Krisna",
+    prodi: "Informatika",
+    angkatan: 2023,
+    ipk: 3.28,
+    kota: "Pasuruan",
+    skills: ["Java", "Git"]
+  },
+  {
+    nim: "3323600025",
+    nama: "Nova",
+    prodi: "Informatika",
+    angkatan: 2023,
+    ipk: 3.91,
+    kota: "Surabaya",
+    skills: ["Python", "MongoDB", "Git"]
+  },
+  {
+    nim: "3323600004",
+    nama: "Akmal",
+    prodi: "Sains Data",
+    angkatan: 2023,
+    ipk: 3.38,
+    kota: "Surabaya",
+    skills: ["JavaScript", "SQL"]
+  },
+  {
+    nim: "3323600029",
+    nama: "Wicaksono",
+    prodi: "Sains Data",
+    angkatan: 2023,
+    ipk: 3.72,
+    kota: "Surabaya",
+    skills: ["Python", "Excel"]
+  },
+  {
+    nim: "332360001",
+    nama: "Septian",
+    prodi: "Sains Data",
+    angkatan: 2023,
+    ipk: 3.49,
+    kota: "Ngawi",
+    skills: ["SQL", "MongoDB"]
+  },
+  {
+    nim: "3323600016",
+    nama: "XiaoFai",
+    prodi: "Teknologi Game",
+    angkatan: 2023,
+    ipk: 3.60,
+    kota: "Mojokerto",
+    skills: ["Unity", "Unreal", "Blender"]
+  }
+])
+
+db.mahasiswa.find()
+
+db.mahasiswa.findOne({ nim: "3323600017" })
+
+db.mahasiswa.updateOne(
+  { nim: "3323600011" },
+  { $set: { ipk: 3.80 } }
+)
+
+db.mahasiswa.updateOne(
+  { nim: "3323600016" },
+  { $set: { email: "xiaofai@example.com" } }
+)
+
+db.mahasiswa.updateOne(
+  { nim: "3323600016" },
+  { $push: { skills: "Aseprite" } }
+)
+
+db.mahasiswa.deleteOne({ nim: "332360001" })
+
+db.mahasiswa.countDocuments()

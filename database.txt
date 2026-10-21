@@ -1,0 +1,7 @@
+show dbs
+
+use kampus
+
+db.createCollection("mahasiswa")
+
+show collections

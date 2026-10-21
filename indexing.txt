@@ -1,0 +1,19 @@
+db.mahasiswa.getIndexes()
+
+db.mahasiswa.createIndex(
+  { nim: 1 },
+  { unique: true }
+)
+
+db.mahasiswa.getIndexes()
+
+db.mahasiswa.createIndex({
+  prodi: 1,
+  ipk: -1
+})
+
+db.mahasiswa.getIndexes()
+
+db.mahasiswa.find({
+  prodi: "Informatika"
+}).explain("executionStats")
